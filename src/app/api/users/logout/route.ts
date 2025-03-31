@@ -1,5 +1,4 @@
 import {connect} from '@/dbConfig/dbConfig'
-import User from '@/models/userModel'
 import { NextRequest, NextResponse } from 'next/server'
 
 connect()
@@ -15,6 +14,7 @@ export async function GET(request: NextRequest){
             httpOnly: true,
             expires: new Date(0)
         })
+        return response;
 
     } catch (error: any) {
         return NextResponse.json({error: error.message},{status: 500})
